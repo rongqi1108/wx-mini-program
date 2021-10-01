@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/rong-video-dev.iml" filepath="$PROJECT_DIR$/rong-video-dev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rong-video-dev-common/rong-video-dev-common.iml" filepath="$PROJECT_DIR$/rong-video-dev-common/rong-video-dev-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rong-video-dev-mapper/rong-video-dev-mapper.iml" filepath="$PROJECT_DIR$/rong-video-dev-mapper/rong-video-dev-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rong-video-dev-mini-api/rong-video-dev-mini-api.iml" filepath="$PROJECT_DIR$/rong-video-dev-mini-api/rong-video-dev-mini-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rong-video-dev-pojo/rong-video-dev-pojo.iml" filepath="$PROJECT_DIR$/rong-video-dev-pojo/rong-video-dev-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rong-video-dev-service/rong-video-dev-service.iml" filepath="$PROJECT_DIR$/rong-video-dev-service/rong-video-dev-service.iml" />
+    </modules>
+  </component>
+</project>
