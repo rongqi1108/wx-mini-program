@@ -12,9 +12,6 @@
 
     <modules>
         <module>rong-video-dev-common</module>
-<!--        <module>rong-video-dev-pojo</module>-->
-<!--        <module>rong-video-dev-mapper</module>-->
-<!--        <module>rong-video-dev-service</module>-->
         <module>rong-video-dev-mini-api</module>
         <module>rong-video-dev-pojo</module>
         <module>rong-video-dev-mapper</module>
@@ -27,21 +24,31 @@
 
 
     <name>rong-video-dev</name>
-    <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        <!--   springbootweb启动     -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <!--排除这个slf4j-log4j12-->
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+
+                <!-- 排除springboot默认的logback日志框架 -->
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+
+
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>

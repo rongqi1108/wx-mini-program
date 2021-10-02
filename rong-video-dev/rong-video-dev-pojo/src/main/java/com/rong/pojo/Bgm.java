@@ -42,4 +42,14 @@ public class Bgm {
     public void setPath(String path) {
         this.path = path;
     }
+
+    @Override
+    public String toString() {
+        return "Bgm{" +
+                "id='" + id + '\'' +
+                ", author='" + author + '\'' +
+                ", name='" + name + '\'' +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }
