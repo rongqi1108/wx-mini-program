@@ -2,6 +2,7 @@ package com.rong;
 
 import com.rong.cofig.ResourceConfig;
 import com.rong.enums.BGMOperatorTypeEnum;
+import com.rong.service.BgmService;
 import com.rong.utils.JsonUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -22,11 +23,14 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 
+/**
+ * zookeeper客户端
+ */
 @Component
 public class ZKCuratorClient {
 
 	// zk客户端
-	private CuratorFramework client = null;	
+	private CuratorFramework client = null;
 	final static Logger log = LoggerFactory.getLogger(ZKCuratorClient.class);
 
 //	@Autowired
@@ -66,14 +70,14 @@ public class ZKCuratorClient {
 		final PathChildrenCache cache = new PathChildrenCache(client, nodePath, true);
 		cache.start();
 		cache.getListenable().addListener(new PathChildrenCacheListener() {
-			
+
 			@Override
-			public void childEvent(CuratorFramework client, PathChildrenCacheEvent event) 
+			public void childEvent(CuratorFramework client, PathChildrenCacheEvent event)
 					throws Exception {
-				
+
 				if (event.getType().equals(PathChildrenCacheEvent.Type.CHILD_ADDED)) {
 					log.info("监听到事件 CHILD_ADDED");
-					
+
 					// 1. 从数据库查询bgm对象，获取路径path
 					String path = event.getData().getPath();
 					String operatorObjStr = new String(event.getData().getData());
@@ -95,11 +99,11 @@ public class ZKCuratorClient {
 					// 2. 定义保存到本地的bgm路径
 //					String filePath = "C:\\rong_videos_dev" + songPath;
 					String filePath = resourceConfig.getFileSpace() + songPath;
-					
-					// 3. 定义下载的路径（播放url）
+//
+//					// 3. 定义下载的路径（播放url）
 					String arrPath[] = songPath.split("\\\\");
 					String finalPath = "";
-					// 3.1 处理url的斜杠以及编码
+//					// 3.1 处理url的斜杠以及编码
 					for(int i = 0; i < arrPath.length ; i ++) {
 						if (StringUtils.isNotBlank(arrPath[i])) {
 							finalPath += "/";
@@ -108,7 +112,7 @@ public class ZKCuratorClient {
 					}
 //					String bgmUrl = "http://192.168.1.2:8080/mvc" + finalPath;
 					String bgmUrl = resourceConfig.getBgmServer() + finalPath;
-					
+
 					if (operatorType.equals(BGMOperatorTypeEnum.ADD.type)) {
 						// 下载bgm到spingboot服务器
 						URL url = new URL(bgmUrl);
@@ -124,5 +128,5 @@ public class ZKCuratorClient {
 			}
 		});
 	}
-	
+
 }

@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * 拦截器
+ */
 public class MiniInterceptor implements HandlerInterceptor {
 
 	@Autowired

@@ -1,19 +1,27 @@
 // app.js
 App({
-  onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+  // serverUrl: "https://www.rongstudy.space/video/",
+  serverUrl: "http://localhost:8081/",
+  userInfo: null,
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+  setGlobalUserInfo: function(user) {
+    wx.setStorageSync("userInfo", user);
   },
-  globalData: {
-    userInfo: null
-  }
+
+  getGlobalUserInfo: function () {
+    return wx.getStorageSync("userInfo");
+  },
+
+  reportReasonArray: [
+    "色情低俗",
+    "政治敏感",
+    "涉嫌诈骗",
+    "辱骂谩骂",
+    "广告垃圾",
+    "诱导分享",
+    "引人不适",
+    "过于暴力",
+    "违法违纪",
+    "其它原因"
+  ]
 })

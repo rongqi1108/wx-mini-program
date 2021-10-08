@@ -1,12 +1,21 @@
 {
-  "pages":[ "pages/userRegist/regist",
-    "pages/index/index"
-   
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "戎旗短视频",
-    "navigationBarTextStyle": "black"
-  }
+    "pages": [ 
+        "pages/userLogin/login",
+        "pages/index/index", 
+        "pages/videoinfo/videoinfo",
+        "pages/videotest/videotest",
+        "pages/report/report",
+        "pages/mine/mine",
+        "pages/userRegist/regist",
+        "pages/chooseBgm/chooseBgm",
+        "pages/searchVideo/searchVideo"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "戎旗短视频",
+        "navigationBarTextStyle": "black"
+    },
+    "debug": true,
+    "sitemapLocation": "sitemap.json"
 }

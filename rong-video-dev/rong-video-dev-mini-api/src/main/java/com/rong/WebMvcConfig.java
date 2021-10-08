@@ -13,10 +13,10 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/**")
-		.addResourceLocations("classpath:/META-INF/resources/")
-				.addResourceLocations("file:/Users/rong/WeChatProjects/rong-video-dev/");
+		        .addResourceLocations("classpath:/META-INF/resources/")
+				.addResourceLocations("file:/Users/rong/rong-video-dev/");
 	}
-	
+
 	@Bean(initMethod="init")
 	public com.rong.ZKCuratorClient zkCuratorClient() {
 		return new com.rong.ZKCuratorClient();
@@ -34,8 +34,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 				       .addPathPatterns("/video/upload", "/video/uploadCover",
 				    		   			"/video/userLike", "/video/userUnLike",
 				    		   			"/video/saveComment")
-												  .addPathPatterns("/bgm/**")
-												  .excludePathPatterns("/user/queryPublisher");
+                      .addPathPatterns("/bgm/**")
+                      .excludePathPatterns("/user/queryPublisher");
 		
 		super.addInterceptors(registry);
 	}
