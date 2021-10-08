@@ -60,13 +60,12 @@ public class VideoController extends BasicController {
 				String desc,
 				@ApiParam(value="短视频", required=true)
 				MultipartFile file) throws Exception {
-		
+
 		if (StringUtils.isBlank(userId)) {
 			return RongJSONResult.errorMsg("用户id不能为空...");
 		}
 		
-		// 文件保存的命名空间
-//		String fileSpace = " /Users/rong/WeChatProjects/rong-video-dev";
+
 		// 保存到数据库中的相对路径
 		String uploadPathDB = "/" + userId + "/video";
 		String coverPathDB = "/" + userId + "/video";

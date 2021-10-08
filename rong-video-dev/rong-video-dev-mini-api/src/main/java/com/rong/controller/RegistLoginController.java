@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
-import static com.rong.controller.interceptor.MiniInterceptor.USER_REDIS_SESSION;
+import static com.rong.controller.BasicController.USER_REDIS_SESSION;
+
 
 @ResponseBody
 @RestController
